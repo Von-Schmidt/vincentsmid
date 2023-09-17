@@ -1,8 +1,18 @@
 <script>
     import './styles.css';
-    import blob from '$lib/images/blob.png';
+	import App from './App.svelte';
 </script>
 
-<div>
-    <img src={blob}>
-</div>
+<section>
+    <App />
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 0.4;
+    }
+</style>
