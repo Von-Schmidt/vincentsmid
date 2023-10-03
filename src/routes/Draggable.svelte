@@ -1,18 +1,17 @@
 <script>
-  let x = 0;
-  let y = 0;
   let isDragging = false;
 
   function onMouseDown(event) {
     isDragging = true;
 
-    let startX = x - event.clientX;
-    let startY = y - event.clientY;
+    let draggedElem = event.currentTarget.parentElement.parentElement;
+    let startX = parseInt(draggedElem.style.left || 0) - event.clientX;
+    let startY = parseInt(draggedElem.style.top || 0) - event.clientY;
 
     function onMouseMove(event) {
       if (isDragging) {
-        x = event.clientX + startX;
-        y = event.clientY + startY;
+        draggedElem.style.left = `${event.clientX + startX}px`;
+        draggedElem.style.top = `${event.clientY + startY}px`;
       }
     }
 
@@ -27,20 +26,6 @@
   }
 </script>
 
-<svelte:head>
-  <style>
-    .draggable {
-      position: absolute;
-      cursor: grab;
-      user-select: none;
-    }
-
-    .draggable:active {
-      cursor: grabbing;
-    }
-  </style>
-</svelte:head>
-
-<div class="draggable" style="left: {x}px; top: {y}px" on:mousedown={onMouseDown}>
+<div on:mousedown={onMouseDown}>
   <slot></slot>
 </div>
