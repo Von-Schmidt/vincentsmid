@@ -4,7 +4,7 @@
   function onMouseDown(event) {
     isDragging = true;
 
-    let draggedElem = event.currentTarget.parentElement.parentElement;
+    let draggedElem = event.currentTarget.parentElement;
     let startX = parseInt(draggedElem.style.left || 0) - event.clientX;
     let startY = parseInt(draggedElem.style.top || 0) - event.clientY;
 
