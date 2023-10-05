@@ -14,8 +14,8 @@
   
   <div class="taskbar-container">
     <div class="taskbar">
-      <button on:click={() => openApp('About me', 'I Stink')}>About me</button>
-      <button on:click={() => openApp('App 2', 'Content of App 2')}>App 2</button>
+      <button on:click={() => openApp('About me', 'THIS PAGE IS UNDERGOING DEVELOPMENT')}>About me</button>
+      <button on:click={() => openApp('LOL', 'asdf')}>App 2</button>
     </div>
   </div>
   
