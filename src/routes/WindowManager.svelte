@@ -1,28 +1,44 @@
 <script>
-    import Draggable from './Draggable.svelte';
-    import { windows } from './store.js';
-  
-    function closeWindow(id) {
-      windows.update(n => n.filter(win => win.id !== id));
-    }
+  import Draggable from './Draggable.svelte';
+  import { windows } from './store.js';
+  import { fly } from 'svelte/transition';
+
+  function closeWindow(id) {
+    windows.update(n => n.filter(win => win.id !== id));
+  }
 </script>
-  
-  {#each $windows as {id, content}}
-    <div class="irix-border">
-      <div class="irix-inner">
-        <Draggable>
-          <div class="title-bar">
-            <button on:click={() => closeWindow(id)}>X</button>
-            <span>{content.title}</span>
+
+{#each $windows as {id, content}}
+  <div in:fly="{{ y: -200, duration: 300 }}" out:fly="{{ y: 200, duration: 300 }}">
+      <div class="window">
+          <Draggable>
+              <div class="title-bar container">
+                  <button class="svg-box container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                      <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                      <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                      <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                    </svg>
+                  </button>
+                  <span>{content.title}</span>
+                  <div class="button-box container">
+                    <button class="button-close" on:click={() => closeWindow(id)}></button>
+                    <button class="button-close" on:click={() => closeWindow(id)}></button>
+                    <button class="button-close" on:click={() => closeWindow(id)}></button>
+                  </div>
+              </div>
+          </Draggable>
+          <div class="window-content">
+              {content.body}
           </div>
-        </Draggable>
-        <div class="window-content">
-          {content.body}
-        </div>
       </div>
-    </div>
-  {/each}
-  
+  </div>
+{/each}
+
 <style>
   .title-bar {
     position: relative;
