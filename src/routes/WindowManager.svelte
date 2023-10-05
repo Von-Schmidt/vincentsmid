@@ -40,107 +40,72 @@
 {/each}
 
 <style>
-  .title-bar {
+  .window {
     position: relative;
-    background-color: var(--color-theme-3);
-    padding: 4px;
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    color: white;
-    z-index: 2;
+    width: 50rem; /* 500px */
+    height: 40rem; /* 400px */
+    background-color: white;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  }
+  
+  .title-bar {
+    background-color: #DFDFDF;
+    height: 3rem; /* 30px */
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    user-select: none;
     cursor: grab;
-    border-bottom: 1px solid darkslategray;
+    color: #676767;
+    text-align: center;
+    font-size: 1.3rem; /* 13px */
+    font-weight: 600;
+    line-height: normal;
+    justify-content: space-between;
   }
 
-  .title-bar:before {
-    border-bottom: 2px solid black;
+  .container {
+    display: flex;
+    align-items: center;
   }
 
-  .title-bar:after {
-    border-bottom: 1px solid #999;
-    
+  .button-box {
+    width: 6.4rem; /* 64px */
+    height: 2.2rem; /* 22px */
+    border-radius: 0.8rem;
+    background: #D4D4D4;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+    margin-left: 0.8rem;
+    margin-right: 0.4rem;
+    justify-content: space-around;
   }
 
-  .title-bar:before, .title-bar:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  .button-close {
+    display: inline-block;
+    width: 1.6rem; /* 16px */
+    height: 1.6rem; /* 16px */
+    background-color: white;
+    border: none;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+    margin-top: 0.1rem;
+  }
+
+  .button-close:hover {
+    background-color: #ff8787;
+    transition: 0.5s;
+  }
+
+  .svg-box {
+    background-color: transparent;
+    border: none;
+    color: transparent;
+    justify-content: space-between;
+    width: 2.6rem; /* 26px */
+    margin-left: 1rem;
   }
 
   .window-content {
-    padding: 10px;
-    border-top: 1px solid black;
-    z-index: 2;
-  }
-
-
-  .irix-border {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background-color: var(--color-theme-4); /* Adjust as per your needs */
-    border: 1px solid black; /* Base border color */
-  }
-  
-  .irix-border:before, .irix-border:after, .irix-inner:before, .irix-inner:after {
-    content: "";
-    position: absolute;
-    box-sizing: border-box;
-  }
-  
-  /* Outer top and left light border */
-  .irix-border:before {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-top: 1px solid #999;
-    border-left: 1px solid #999;
-    z-index: 1;
-  }
-  
-  /* Inner bottom and right dark border */
-  .irix-inner:after {
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    top: 0px;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    z-index: 1;
-  }
-  
-  /* Outer bottom and right slightly-lighter border */
-  .irix-border:after {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-right: 1px solid #999;
-    border-bottom: 1px solid #999;
-    z-index: 1;
-  }
-  
-  /* Inner top and left slightly-darker border */
-  .irix-inner:before {
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    top: 0px;
-    border-left: 1px solid black;
-    border-top: 1px solid black;
-    z-index: 1;
-  }
-  
-  .irix-inner {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    border: 2px solid darkslategray;
+    padding: 1rem;
   }
 </style>
