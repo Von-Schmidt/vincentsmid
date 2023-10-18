@@ -42,8 +42,8 @@
 <style>
   .window {
     position: relative;
-    width: 50rem; /* 500px */
-    height: 40rem; /* 400px */
+    width: 60rem;
+    height: 40rem;
     background-color: white;
     border-radius: 0.8rem;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
@@ -51,14 +51,14 @@
   
   .title-bar {
     background-color: #DFDFDF;
-    height: 3rem; /* 30px */
+    height: 3rem;
     border-top-left-radius: 0.8rem;
     border-top-right-radius: 0.8rem;
     user-select: none;
     cursor: grab;
     color: #676767;
     text-align: center;
-    font-size: 1.3rem; /* 13px */
+    font-size: 1.3rem;
     font-weight: 600;
     line-height: normal;
     justify-content: space-between;
@@ -70,8 +70,8 @@
   }
 
   .button-box {
-    width: 6.4rem; /* 64px */
-    height: 2.2rem; /* 22px */
+    width: 6.4rem;
+    height: 2.2rem;
     border-radius: 0.8rem;
     background: #D4D4D4;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
@@ -82,8 +82,8 @@
 
   .button-close {
     display: inline-block;
-    width: 1.6rem; /* 16px */
-    height: 1.6rem; /* 16px */
+    width: 1.6rem;
+    height: 1.6rem;
     background-color: white;
     border: none;
     border-radius: 0.8rem;
@@ -101,7 +101,7 @@
     border: none;
     color: transparent;
     justify-content: space-between;
-    width: 2.6rem; /* 26px */
+    width: 2.6rem;
     margin-left: 1rem;
   }
 
