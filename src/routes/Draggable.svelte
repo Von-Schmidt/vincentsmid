@@ -4,14 +4,14 @@
   function onMouseDown(event) {
     isDragging = true;
 
-    let draggedElem = event.currentTarget.parentElement;
-    let startX = parseInt(draggedElem.style.left || 0) - event.clientX;
-    let startY = parseInt(draggedElem.style.top || 0) - event.clientY;
+    let draggedElement = event.currentTarget.parentElement;
+    let startX = parseInt(draggedElement.style.left || 0) - event.clientX;
+    let startY = parseInt(draggedElement.style.top || 0) - event.clientY;
 
     function onMouseMove(event) {
       if (isDragging) {
-        draggedElem.style.left = `${event.clientX + startX}px`;
-        draggedElem.style.top = `${event.clientY + startY}px`;
+        draggedElement.style.left = `${event.clientX + startX}px`;
+        draggedElement.style.top = `${event.clientY + startY}px`;
       }
     }
 
