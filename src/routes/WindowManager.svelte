@@ -10,11 +10,16 @@
   let maximizedWindows = new Set();
 
   function toggleWindowMaximized(id) {
+      let windowElem = document.querySelector(`.window[data-id="${id}"]`);
       if (maximizedWindows.has(id)) {
           maximizedWindows.delete(id);
+          if (windowElem) {
+              windowElem.style.top = '50%';
+              windowElem.style.left = '50%';
+              windowElem.style.transform = 'translate(-50%, 0%)';
+          }
       } else {
           maximizedWindows.add(id);
-          let windowElem = document.querySelector(`.window[data-id="${id}"]`);
           if (windowElem) {
               windowElem.style.top = '50%';
               windowElem.style.left = '50%';
