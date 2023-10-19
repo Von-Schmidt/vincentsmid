@@ -6,32 +6,71 @@
   function closeWindow(id) {
     windows.update(n => n.filter(win => win.id !== id));
   }
+
+  let maximizedWindows = new Set();
+
+  function toggleWindowMaximized(id) {
+      if (maximizedWindows.has(id)) {
+          maximizedWindows.delete(id);
+      } else {
+          maximizedWindows.add(id);
+          let windowElem = document.querySelector(`.window[data-id="${id}"]`);
+          if (windowElem) {
+              windowElem.style.top = '50%';
+              windowElem.style.left = '50%';
+              windowElem.style.transform = 'translate(-50%, -50%)';
+          }
+      }
+      maximizedWindows = new Set(maximizedWindows);
+  }
 </script>
 
 {#each $windows as {id, content}}
   <div in:fly="{{ y: -200, duration: 300 }}" out:fly="{{ y: 200, duration: 300 }}">
-      <div class="window">
-          <Draggable>
+      <div class="window" class:maximized={maximizedWindows.has(id)} data-id={id}>
+          {#if !maximizedWindows.has(id)}
+              <Draggable>
+                  <div class="title-bar container">
+                      <button class="svg-box container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                          <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                          <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                          <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                        </svg>
+                      </button>
+                      <span>{content.title}</span>
+                      <div class="button-box container">
+                        <button class="button-close" on:click={() => closeWindow(id)}></button>
+                        <button class="button-close" on:click={() => toggleWindowMaximized(id)}></button>
+                        <button class="button-close" on:click={() => closeWindow(id)}></button>
+                      </div>
+                  </div>
+              </Draggable>
+          {:else}
               <div class="title-bar container">
                   <button class="svg-box container">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
-                      <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
-                      <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
-                      <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
-                    </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                          <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                          <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="5" height="5" viewBox="0 0 5 5" fill="none">
+                          <circle cx="2.5" cy="2.5" r="2.5" fill="white"/>
+                      </svg>
                   </button>
                   <span>{content.title}</span>
                   <div class="button-box container">
-                    <button class="button-close" on:click={() => closeWindow(id)}></button>
-                    <button class="button-close" on:click={() => closeWindow(id)}></button>
-                    <button class="button-close" on:click={() => closeWindow(id)}></button>
+                      <button class="button-close" on:click={() => closeWindow(id)}></button>
+                      <button class="button-close" on:click={() => toggleWindowMaximized(id)}></button>
+                      <button class="button-close" on:click={() => closeWindow(id)}></button>
                   </div>
               </div>
-          </Draggable>
+          {/if}
           <div class="window-content">
               {content.body}
           </div>
@@ -48,7 +87,7 @@
     border-radius: 0.8rem;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
   }
-  
+
   .title-bar {
     background-color: #DFDFDF;
     height: 3rem;
@@ -107,5 +146,17 @@
 
   .window-content {
     padding: 1rem;
+  }
+
+  .window.maximized {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      box-shadow: none;
+      position: fixed !important;
+      top: 50%;           /* Center the window vertically */
+      left: 50%;          /* Center the window horizontally */
+      transform: translate(-50%, -50%); /* Correct the positioning for true center */
+      z-index: 11;
   }
 </style>
