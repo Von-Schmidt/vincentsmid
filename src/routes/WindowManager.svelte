@@ -77,7 +77,7 @@
               </div>
           {/if}
           <div class="window-content">
-              {content.body}
+              <svelte:component this={content.body} />
           </div>
       </div>
   </div>
