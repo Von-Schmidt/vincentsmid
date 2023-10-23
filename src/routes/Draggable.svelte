@@ -1,31 +1,31 @@
 <script>
-  let isDragging = false;
+    let isDragging = false;
 
-  function onMouseDown(event) {
-    isDragging = true;
+    function onMouseDown(event) {
+        isDragging = true;
 
-    let draggedElement = event.currentTarget.parentElement;
-    let startX = parseInt(draggedElement.style.left || 0) - event.clientX;
-    let startY = parseInt(draggedElement.style.top || 0) - event.clientY;
+        let draggedElement = event.currentTarget.parentElement;
+        let startX = parseInt(draggedElement.style.left || 0) - event.clientX;
+        let startY = parseInt(draggedElement.style.top || 0) - event.clientY;
 
-    function onMouseMove(event) {
-      if (isDragging) {
-        draggedElement.style.left = `${event.clientX + startX}px`;
-        draggedElement.style.top = `${event.clientY + startY}px`;
-      }
+        function onMouseMove(event) {
+            if (isDragging) {
+                draggedElement.style.left = `${event.clientX + startX}px`;
+                draggedElement.style.top = `${event.clientY + startY}px`;
+            }
+        }
+
+        function onMouseUp() {
+            isDragging = false;
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mouseup', onMouseUp);
+        }
+
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
     }
-
-    function onMouseUp() {
-      isDragging = false;
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseup', onMouseUp);
-    }
-
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', onMouseUp);
-  }
 </script>
 
 <div on:mousedown={onMouseDown}>
-  <slot></slot>
+    <slot></slot>
 </div>

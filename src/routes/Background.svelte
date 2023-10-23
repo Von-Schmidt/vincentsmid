@@ -1,6 +1,7 @@
 <script>
     import Background from '$lib/images/bground.jpg'
     import BackgroundLowRes from '$lib/images/bground_lowres.jpg'
+
     let imageLoaded = false;
 
     function handleImageLoad() {
@@ -9,14 +10,12 @@
 </script>
 
 <div class="background-container">
-    <!-- Low-res background div -->
     <div
             class="background-image low-res"
             style="background-image: url({BackgroundLowRes});"
             use:handleImageLoad>
     </div>
 
-    <!-- High-res background div -->
     <div
             class="background-image high-res {imageLoaded ? 'loaded' : ''}"
             style="background-image: url({Background});"
