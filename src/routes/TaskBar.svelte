@@ -6,19 +6,18 @@
 
     let id = 0;
 
-    function openApp(title, bodyComponent) {
-        windows.update(n => [...n, {id: id++, content: {title, body: bodyComponent}}]);
+    function openApp(title, bodyComponent, width, height) {
+        windows.update(n => [...n, {id: id++, content: {title, body: bodyComponent}, width, height}]);
     }
 
-
     onMount(() => {
-        openApp('Welcome', Welcome);
+        openApp('Welcome', Welcome, '100rem', '100rem');
     });
 </script>
 
 <div class="taskbar-container">
     <div class="taskbar">
-        <button class="svg-box" on:click={() => openApp('test', Welcome)}>
+        <button class="svg-box" on:click={() => openApp('test', Welcome, '60rem', '40rem')}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path fill="#1ed760"
                       d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8Z"/>

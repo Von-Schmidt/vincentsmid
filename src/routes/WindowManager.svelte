@@ -30,9 +30,9 @@
     }
 </script>
 
-{#each $windows as {id, content}}
+{#each $windows as {id, content, width, height}}
     <div in:fly="{{ y: -200, duration: 300 }}" out:fly="{{ y: 200, duration: 300 }}">
-        <div class="window" class:maximized={maximizedWindows.has(id)} data-id={id}>
+        <div class="window" class:maximized={maximizedWindows.has(id)} data-id={id} style="width: {width}; height: {height};">
             {#if !maximizedWindows.has(id)}
                 <Draggable>
                     <div class="title-bar container">
@@ -86,8 +86,6 @@
 <style>
     .window {
         position: relative;
-        width: 60rem;
-        height: 40rem;
         background-color: white;
         border-radius: 0.8rem;
         box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
