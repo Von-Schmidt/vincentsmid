@@ -1,8 +1,8 @@
 <script>
     import {windows} from './store.js';
     import {onMount} from 'svelte';
-    import {SvelteComponent} from 'svelte';
     import Welcome from './Welcome.svelte'
+    import AboutMe from './AboutMe.svelte'
 
     let id = 0;
 
@@ -11,7 +11,7 @@
     }
 
     onMount(() => {
-        openApp('Welcome', Welcome, '50rem', '40rem');
+        openApp('Welcome', Welcome, '59.3rem', '40rem');
     });
 </script>
 
@@ -63,7 +63,7 @@
                       fill="#C45FA0"/>
             </svg>
         </button>
-        <button class="svg-box" on:click={() => openApp('test', 'test-body')}>
+        <button class="svg-box" on:click={() => openApp('About Me', AboutMe, '59.3rem', '40rem')}>
             <svg width="800px" height="800px" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <path d="M691.573 338.89c-1.282 109.275-89.055 197.047-198.33 198.331-109.292 1.282-197.065-90.984-198.325-198.331-0.809-68.918-107.758-68.998-106.948 0 1.968 167.591 137.681 303.31 305.272 305.278C660.85 646.136 796.587 503.52 798.521 338.89c0.811-68.998-106.136-68.918-106.948 0z"
                       fill="#4A5699"/>
@@ -182,7 +182,6 @@
     svg {
         width: 4rem;
         height: 4rem;
-        margin-left: 0.125rem;
     }
 
     .svg-box {
