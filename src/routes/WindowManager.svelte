@@ -49,7 +49,7 @@
                         </button>
                         <span>{content.title}</span>
                         <div class="button-box container">
-                            <button class="button-close" on:click={() => closeWindow(id)}></button>
+                            <button class="button-close" on:click={() => toggleWindowMaximized(id)}></button>
                             <button class="button-close" on:click={() => toggleWindowMaximized(id)}></button>
                             <button class="button-close" on:click={() => closeWindow(id)}></button>
                         </div>
@@ -153,14 +153,14 @@
     }
 
     .window.maximized {
-        width: 100vw;
-        height: 100vh;
+        width: 100vw !important;
+        height: 100vh !important;
         border-radius: 0;
         box-shadow: none;
         position: fixed !important;
-        top: 50%; /* Center the window vertically */
-        left: 50%; /* Center the window horizontally */
-        transform: translate(-50%, -50%); /* Correct the positioning for true center */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         z-index: 11;
     }
 </style>
