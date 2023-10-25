@@ -40,21 +40,21 @@
         transition: opacity 0.5s;
 
         background-repeat: no-repeat;
-        background-size: cover; /* Ensures image covers the entire element */
-        background-position: center; /* Centers the image */
+        background-size: cover;
+        background-position: center;
     }
 
     .background-image.low-res {
         z-index: -10;
-        opacity: 0.5; /* Initial reduced opacity for the low-res image */
+        opacity: 0.5;
     }
 
     .background-image.high-res {
         z-index: -9;
-        opacity: 0; /* Initially hidden */
+        opacity: 0;
     }
 
     .background-image.high-res.loaded {
-        opacity: 1; /* Show when loaded */
+        opacity: 1;
     }
 </style>
