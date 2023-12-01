@@ -1,4 +1,4 @@
-<script>
+<script lang="js">
     let isDragging = false; /* FIXME fix window glitching by merging components */
 
     function onMouseDown(event) {
