@@ -1,5 +1,5 @@
 <script>
-    let isDragging = false; /* FIXME fix window glitching */
+    let isDragging = false; /* FIXME fix window glitching by merging components */
 
     function onMouseDown(event) {
         isDragging = true;
