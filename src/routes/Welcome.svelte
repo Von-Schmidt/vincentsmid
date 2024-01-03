@@ -9,6 +9,7 @@
     </div>
     <div class="rightsubcontainer">
         <h1>Hello cruel world! 🤩</h1>
+        <iframe src="https://lottie.host/embed/fd36e9cc-2cd6-4956-8751-2549d5abe64f/PsTImqB3O2.json"></iframe>
         <p>My name is Vincent Smid and I am a Software Developer.</p>
         <p>To find more information - consider opening the following "apps":</p>
         <div class="appcontainer">
