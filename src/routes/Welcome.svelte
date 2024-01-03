@@ -20,3 +20,5 @@
     loop 
     autoplay>
 </dotlottie-player>
+
+<!-- TODO: fix window fullscreen content scaling, add something after this animation, fix draggable bug-->
