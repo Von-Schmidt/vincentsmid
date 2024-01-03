@@ -11,7 +11,7 @@
     }
 
     onMount(() => {
-        openApp('Welcome', Welcome, '59.3rem', '40rem');
+        openApp('', Welcome, '59.3rem', '40rem');
     });
 </script>
 
