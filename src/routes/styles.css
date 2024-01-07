@@ -14,6 +14,15 @@
     --color-theme-3: #676767;
     /* Title bar misc color SHOULD BE DARKER */
     --color-theme-4: #d4d4d4;
+    /* Close button color */
+    --color-theme-5: #fefcfc;
+    /* Minimize button color */
+    --color-theme-6: #ffbd2e;
+    /* Maximize button color */
+    --color-theme-7: #27c93f;
+    /* Close button hover color */
+    --color-theme-8: #e0443e;
+    
     --color-bg-1: #5bdbf6;
     --color-text: rgba(0, 0, 0, 0.7);
     --column-width: 42rem;
