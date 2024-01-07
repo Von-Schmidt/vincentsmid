@@ -1,6 +1,6 @@
 <script>
-    import './styles.css';
-    import Background from "./Background.svelte";
+  import './styles.css';
+  import Background from "./Background.svelte";
 
 </script>
 
