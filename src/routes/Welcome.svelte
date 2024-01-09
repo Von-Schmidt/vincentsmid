@@ -10,11 +10,11 @@
     }
   });
 
-  let showGreeting = false;
+  let showEnded = false;
   let playerVisible = true;
   function handleAnimationComplete() {
     playerVisible = false;
-    showGreeting = true;
+    showEnded = true;
   }
 </script>
 
@@ -31,7 +31,7 @@
   </div>
 {/if}
 
-{#if showGreeting}
+{#if showEnded}
   <div class="greeting">
     <h1>Hi there!</h1>
   </div>
