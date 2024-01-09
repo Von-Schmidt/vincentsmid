@@ -1,7 +1,6 @@
 <script>
   import './styles.css';
   import Background from "./Background.svelte";
-
 </script>
 
 <div class="app">
