@@ -48,6 +48,7 @@ body {
     background-attachment: fixed;
     background-size: 100vw 100vh;
     font-size: 1.6rem;
+    cursor: url('src/lib/images/Cursor_Point.png'), auto;
 }
 
 *, *:before, *:after {
