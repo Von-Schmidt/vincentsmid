@@ -140,16 +140,20 @@
   }
 
   .svg-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.2rem;
       background-color: transparent;
       border: none;
       color: transparent;
       justify-content: space-between;
-      width: 2.6rem;
       margin-left: 1rem;
   }
 
   .svg-box svg {
       fill: var(--color-theme-5);
+      width: 0.5rem;
+      height: 0.5rem;
   }
 
   .window-content {
